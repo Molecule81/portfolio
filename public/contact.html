@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+</head>
+<link rel="stylesheet" href="contact.css">
+<body>
+    <div class="container">
+        <h1>Let's Get In Touch</h1>
+
+        <form id="contactForm" action="http://localhost:4000/api/contact" method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name"
+             placeholder="eg. Sharon" required autofocus>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email"
+             placeholder="eg.name@example.com"
+             required>
+
+            <label for="message">Message</label>
+            <textarea placeholder="Type Your Messge Here..."
+            name="message" id="message"
+            cols="30" rows="8" 
+            required></textarea>
+
+            <button type="submit">Send Message <img src="pictures/icons/sent.png" alt=""></button>
+            <a href="/public/index.html">Back To Home <img src="pictures/icons/home2.png" alt=""></a>
+
+            <p>&copy; 2025 WIZARD Engineers. All rights reserved.</p>
+
+        </form>
+    </div>
+    <script>
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        try {
+            const response = await fetch('http://localhost:4000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            } else {
+                alert(`Error: ${data.message}`);
+            }
+        } catch (error) {
+            alert('An server error occurred. Please try again later.');
+        }
+    });
+    </script>
+</body>
+</html>
