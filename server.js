@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const app = express();
 const cors = require('cors');
+const path = require('path')
 
 // Load environment variables
 dotenv.config();
@@ -11,16 +12,26 @@ dotenv.config();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve static files (e.g., contact.html)
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'contact.html'), (err) => {
+        if (err) {
+            console.error('Error loading contact.html:', err);
+            res.status(500).send('Server error');
+        }
+    });
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
-});
-
 // Mount contact route
 const contactRoutes = require('./routes/contact');
 app.use('/api/contact', contactRoutes);
