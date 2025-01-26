@@ -20,7 +20,6 @@ app.get('*', (req, res) => {
 app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'contact.html'));
 });
-app.use(express.static('public'));
 
 // Mount contact route
 const contactRoutes = require('./routes/contact');
