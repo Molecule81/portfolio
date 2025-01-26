@@ -2,12 +2,9 @@
     margin: 0;
     padding: 0;
 }
-#nav-toggle {
-    display: none;
-}
 img{
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 header{
     text-align: center;
@@ -17,33 +14,33 @@ header{
     color: red;
 }
 header, h1 p{
-    font-size: larger;
+    font-size: large;
 }
 header p{
     color: blue;
     font-family: cursive;
-    font-size: larger;
+    font-size: large;
 }
 header img{
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
 }
 h2{
     margin-bottom: 1rem;
     text-decoration: underline;
     font-style: oblique;
-    font-size: 35px;
+    font-size: 30px;
     color: red;
 }
 nav{
     text-align: center;
     justify-content: center;
     display: flex;
-    font-size: larger;
+    font-size: large;
     background-color: rgb(10, 247, 29);
     padding: .1rem;
     align-items: center;
-    gap: 5rem;
+    gap: 4rem;
 
 }
 a{
@@ -79,7 +76,7 @@ body{
     color: aliceblue;
 }
 .portfolio_item, h2 p{
-    font-size: 25px;
+    font-size: 20px;
 }
 .hassan{
     display: grid;
@@ -157,7 +154,7 @@ ul{
 footer{
     text-align: center;
     margin-top: 4rem;
-    font-size: larger;
+    font-size: large;
     background-color: black;
     padding: 1rem;
     color: aliceblue;
@@ -173,7 +170,7 @@ footer{
     border: none;
     padding: 10px 15px;
     border-radius: 50%; /* Circle shape */
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     display: none; /* Initially hidden */
 }
@@ -182,7 +179,7 @@ footer{
 @media (max-width: 850px) {
     nav{
         font-size: 1.2rem; 
-        gap: 20px;
+        gap: 12px;
     }
     .container {
         width: 86%; /* Reduce width to fit smaller screens */
@@ -190,7 +187,7 @@ footer{
         margin: 0 auto;
     }
     h1 {
-        font-size: 24px; /* Smaller heading size */
+        font-size: 20px; /* Smaller heading size */
     }
     p {
         font-size: 14px; /* Smaller paragraph text */
