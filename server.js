@@ -11,6 +11,7 @@ const contactRoutes = require('./routes/contact');
 dotenv.config();
 
 // Middleware to parse JSON
+app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
