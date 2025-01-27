@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const router = express.Router();
 
 // POST route to handle contact form submissions
-router.post('/', async (req, res) => {
+router.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
     // Basic validation
     if (!name || !email || !message) {
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 
         // Email options
         const mailOptions = {
-            from: req.body.email,
+            from: email,
             to: process.env.EMAIL, // Your email address to receive the message
             subject: `Portfolio Contact Form:`,
             text: `You have a new message from ${name} (${email}):\n\n${message}`,
