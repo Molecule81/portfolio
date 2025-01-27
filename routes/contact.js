@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const router = express.Router();
 
 // POST route to handle contact form submissions
-router.post('wizard-engineers.up.railway.app/api/contact', async (req, res) => {
+router.post('/', async (req, res) => {
     const { name, email, message } = req.body;
     // Basic validation
     if (!name || !email || !message) {
