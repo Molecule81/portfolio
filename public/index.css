@@ -42,7 +42,8 @@ nav{
 }
 .nav-links{
     display: flex;
-    gap: 5rem;
+    gap: 4rem;
+    align-items: center;
 }
 .nav-toggle {
     display: none;
@@ -178,7 +179,7 @@ footer{
         display: block;
         background: none;
         border: none;
-        font-size: 2rem;
+        font-size: 2.5rem;
         cursor: pointer;
         color: red;
         margin-right: 1rem;
@@ -186,8 +187,9 @@ footer{
     }
     .nav-links {
         display: flex;
+        align-items: center;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
         position: absolute;
         top: 0;
         left: -250px; /* Hidden off-screen */
