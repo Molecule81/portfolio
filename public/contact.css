@@ -15,23 +15,24 @@ body{
     display: flex;
     background-image: url(pictures/contactPic.png);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 form{
     display: flex;
     flex-direction: column;
 }
 label{
-    padding: .5rem;
-    font-size: 25px;
+    padding: .3rem;
+    font-size: 18px;
     color: rgb(255, 0, 0);
 }
 input{
     padding: .5rem;
     margin-bottom: 2rem;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     color: green;
-    font-size: larger;
+    font-size: large;
 }
 .container{
     padding-bottom: 2rem;
@@ -47,12 +48,12 @@ textarea::placeholder{
 }
 textarea{
     border: none;
-    font-size: 17px;
+    font-size: 16px;
     color: green;
 }
 p{
     color: blue;
-    font-size: larger;
+    font-size: 15px;
     margin-top: 2.5rem;
 }
 a{
@@ -72,6 +73,7 @@ img{
     height: 15px;
 }
 button{
+    border: none;
     border-radius: 10px;
     font-size: large;
     cursor: pointer;
