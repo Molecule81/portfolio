@@ -123,7 +123,14 @@
     <footer>
         <p>&copy; 2025 WIZARD Engineers. All rights reserved.</p>
     </footer>
-    <script>// Show or hide the button as the user scrolls
+    <script>
+        const navToggle = document.querySelector(".nav-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+        // Show or hide the button as the user scrolls
         window.onscroll = function () {
             const backToTopButton = document.getElementById('back-to-top');
             if (document.documentElement.scrollTop > 200) { // Show button after scrolling 200px
