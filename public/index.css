@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 img{
     height: 20px;
@@ -9,8 +10,7 @@ img{
 header{
     text-align: center;
     padding: .7rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem 0;
     color: red;
 }
 header, h1 p{
@@ -19,7 +19,7 @@ header, h1 p{
 header p{
     color: blue;
     font-family: cursive;
-    font-size: large;
+    font-size: 1rem;
 }
 header img{
     height: 55px;
@@ -33,15 +33,20 @@ h2{
     color: red;
 }
 nav{
-    text-align: center;
-    justify-content: center;
     display: flex;
-    font-size: large;
-    background-color: rgb(10, 247, 29);
-    padding: .1rem;
     align-items: center;
-    gap: 4rem;
+    justify-content: center;
+    background-color: rgb(10, 247, 29);
+    padding: 0.5rem 1rem;
 
+}
+.nav-links{
+    display: flex;
+    gap: 5rem;
+}
+.nav-toggle {
+    display: none;
+       
 }
 a{
     text-decoration: none;
@@ -60,16 +65,17 @@ body{
     background-image: url(pictures/office.jpeg);
     background-repeat:no-repeat;
     background-size: cover;
+    padding: 2rem;
 }
 .port{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .portfolio_item{
     margin: 1rem;
-    margin-top: 2rem;
     padding: 2rem;
     border-radius: 10px;
     background-color: rgb(49, 233, 12);
@@ -80,8 +86,8 @@ body{
 }
 .hassan{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));    align-items: center;
     text-align: center;
     background-color: rgba(240, 245, 248, 0.541);
 
@@ -90,22 +96,16 @@ body{
     color: rgb(255, 8, 0);
 }
 
-.services{
+.services, .about, .testimonials{
+    padding: 1rem;
     margin: 2rem;
     background-color: aqua;
     border-radius: 10px;
+    color: blue;
 
 }
 .services h2{
     margin: 1rem;
-}
-
-.testimonials{
-    color: blue;
-    background-color: aqua;
-    padding: 1rem;
-    border-radius: 10px;
-
 }
 li{
     font-size: larger;
@@ -116,14 +116,6 @@ li{
 ul{
     list-style-type: none;
     list-style-position: inside;
-}
-.about{
-    margin: 3rem;
-    padding: 1rem;
-    background-color: aqua;
-    padding: 1rem;
-    border-radius: 10px;
-
 }
 .about p{
     color: blue;
@@ -144,8 +136,9 @@ ul{
 }
 .follow{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: .2rem;
+    gap: 0.5rem;
     background-color: rgb(29, 43, 238);
     margin-top: 10px;
     padding: 5px;
@@ -176,43 +169,92 @@ footer{
 }
 
 /*responsive design*/
-@media (max-width: 850px) {
+@media (max-width: 768px) {
     nav{
-        font-size: 1.2rem; 
-        gap: 12px;
+        display: flex;
+        justify-content: flex-start;
     }
-    img{
-        height: 17px;
-        width: 17px;
+    .nav-toggle{
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: red;
+        margin-right: 1rem;
+        z-index: 1000;
     }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: absolute;
+        top: 0;
+        left: -250px; /* Hidden off-screen */
+        width: 250px;
+        background-color: aliceblue;
+        padding: 2rem 1rem;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+    .nav-links.active {
+        left: 0; /* Slide in from the left */    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header img {
+        height: 40px;
+        width: 40px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
     .container {
-        width: 86%; /* Reduce width to fit smaller screens */
-        padding: 10px;
-        margin: 0 auto;
+        padding: 1rem;
     }
-    h1 {
-        font-size: 20px; /* Smaller heading size */
-    }
-    p {
-        font-size: 14px; /* Smaller paragraph text */
-        line-height: 1.6;
-    }
-    .port{
-        display: grid;
+
+    .port, .hassan {
         grid-template-columns: 1fr;
     }
-    .hassan{
-        display: grid;
-        grid-template-columns: 1fr;
+
+    .portfolio_item, .services, .about, .testimonials {
+        margin: 1rem;
+        padding: 1rem;
     }
-    .testimonials{
-        margin-bottom: 20px;
-        margin: 10px;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
     }
-    .contact{
-        margin: 10px;
+
+    header img {
+        height: 30px;
+        width: 30px;
     }
-    .follow{
-        gap: 0;
+
+    nav {
+        font-size: 0.8rem;
+        gap: 0.2rem;
+    }
+
+    a {
+        margin: 0.5rem;
+    }
+
+    .port, .hassan {
+        gap: 0.5rem;
+    }
+
+    .portfolio_item, .services, .about, .testimonials {
+        padding: 0.5rem;
+    }
+
+    .contact p {
+        font-size: 1rem;
     }
 }
