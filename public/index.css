@@ -148,6 +148,14 @@ ul{
     padding: 5px;
     justify-content: center;
 }
+.contact button{
+    height: auto;
+    width: auto;
+}
+.contact button:hover{
+    background-color: #e6f50ee7;
+    border: none;
+}
 footer{
     text-align: center;
     margin-top: 4rem;
