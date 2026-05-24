@@ -27,7 +27,7 @@ form.addEventListener('submit', async (event) => {
     submitBtn.disabled = true;
     showAlert('Sending...', '#0d37f0');
 
-    const res = await fetch('/api/contact', {
+    const res = await fetch('https://portfolio-8nnt.onrender.com/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, message }),
