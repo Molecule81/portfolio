@@ -8,7 +8,7 @@ const contactRoute = require('./contact.route');
 const app = express();
 
 app.use(cors({
-  origin: 'https://github.com/Molecule81/portfolio.git'
+  origin: 'https://Molecule81.github.io'
 }));
 app.use(express.json());
 
