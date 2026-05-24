@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
-const contactRoutes = require('./contact.route');
+const contactRoute = require('./contact.route');
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API routes
-app.use('/api/contact', contactRoutes);
+app.use('/api/contact', contactRoute);
 
 // Fallback for root
 app.get('/', (req, res) => {
